@@ -32,6 +32,7 @@ public class RegistrationServiceImpl implements RegistrationService {
                 .login(userForm.getLogin())
                 .name(userForm.getName())
                 .email(userForm.getEmail())
+                .phone(userForm.getPhone())
                 .hashPassword(encoder.encode(userForm.getPassword()))
                 .uuid(UUID.randomUUID())
                 .build();
@@ -42,7 +43,7 @@ public class RegistrationServiceImpl implements RegistrationService {
             message.setContent("hello", "text/html");
             MimeMessageHelper messageHelper = new MimeMessageHelper(message, true);
             messageHelper.setTo(user.getEmail());
-            messageHelper.setSubject("Подвтерждение регистрации в чате");
+            messageHelper.setSubject("Подтверждение регистрации в чате");
             messageHelper.setText("http://localhost:8080/confirm/" + user.getUuid(), true);
             messageHelper.setFrom(new InternetAddress("09.622.2group.ivmiit@gmail.com"));
         } catch (MessagingException e) {

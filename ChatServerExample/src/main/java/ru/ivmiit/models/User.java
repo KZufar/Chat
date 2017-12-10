@@ -32,6 +32,7 @@ public class User {
     private List<Chat> chats;
 
     private String email;
+    private String phone;
 
     private UUID uuid;
 

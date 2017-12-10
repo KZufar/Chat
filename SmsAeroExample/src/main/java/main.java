@@ -22,11 +22,8 @@ public class main {
                 + from + "&type="
                 + type;
         System.out.println(request);
-
         RestTemplate template = new RestTemplate();
         ResponseEntity<String> responseEntity = template.getForEntity(request,String.class);
-
         System.out.println(responseEntity.getBody());
-
     }
 }
